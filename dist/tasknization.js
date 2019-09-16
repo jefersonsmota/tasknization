@@ -18,7 +18,8 @@
             remove: remove,
             complete: complete,
             clearAll: clearAll,
-            pendingTasks: pendingTasks
+            pendingTasks: pendingTasks,
+            isComplete: isComplete
         };
 
         /**
@@ -93,6 +94,14 @@
             if (_tasks.length == _completed.length && _finishTask !== null) {
                 _finishTask();
             }
+        }
+
+        /**
+         * Check that all tasks have been completed.
+         * @function isComplete
+        */
+        function isComplete() {
+            return _tasks.length == _completed.length;
         }
 
         /**

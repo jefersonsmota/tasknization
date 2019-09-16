@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tasknization</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../dist/tasknization.min.js"></script>
+    <script src="../dist/tasknization.js"></script>
 </head>
+
 <body>
     <script>
         function taskFinal() {
             console.log('done!');
-        } 
+        }
 
         tasknization.setFinishTask(taskFinal);
 
         function init() {
-            for(var i = 1; i <= 1000; i++) {
+            for (var i = 1; i <= 500; i++) {
                 tasknization.add('Tarefa' + i);
             }
-
-            for(var i = 1000; i >= 1; i--) {
-                console.log('Complete Task ', i);
-                tasknization.complete('Tarefa' + i);
+            var tentativas = 0;
+            while (!tasknization.isComplete()) {
+                tentativas++;
+                
+                var min = Math.ceil(0);
+                var max = Math.floor(500);
+                var id = Math.floor(Math.random() * (max - min)) + min;
+                console.log(tentativas, 'Tarefa' + id);
+                tasknization.complete('Tarefa' + id);
             }
         }
-        
+
     </script>
 </body>
+
 </html>
