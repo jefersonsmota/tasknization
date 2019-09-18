@@ -1,4 +1,4 @@
-/** motaJs@tasknization.js 1.0.0
+/** motaJs@tasknization.js 1.0.1
 * Define a function to perform after completing token-defined tasks.
 * (c) 2019 Jeferson Mota <jsmota.dev@gmail.com>
 * This tasknization.js is freely distributable under the MIT license
@@ -99,9 +99,10 @@
         /**
          * Check that all tasks have been completed.
          * @function isComplete
+         * @return {boolean} true: all tasks completed, false: any tasks is pending.
         */
         function isComplete() {
-            return _tasks.length == _completed.length;
+            return (_tasks.length == _completed.length) && (_tasks.length > 0 && _completed.length > 0);
         }
 
         /**

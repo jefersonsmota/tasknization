@@ -19,17 +19,18 @@
 
         function init() {
             for (var i = 1; i <= 500; i++) {
-                tasknization.add('Tarefa' + i);
+                tasknization.add('Task' + i);
             }
-            var tentativas = 0;
+
+            var executions = 0;
+            var min = Math.ceil(0);
+            var max = Math.floor(500);
             while (!tasknization.isComplete()) {
-                tentativas++;
+                executions++;
                 
-                var min = Math.ceil(0);
-                var max = Math.floor(500);
                 var id = Math.floor(Math.random() * (max - min)) + min;
-                console.log(tentativas, 'Tarefa' + id);
-                tasknization.complete('Tarefa' + id);
+                console.log(executions, 'Task' + id);
+                tasknization.complete('Task' + id);
             }
         }
 
