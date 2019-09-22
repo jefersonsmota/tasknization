@@ -1,5 +1,5 @@
 ## Tasknization
-Define a function to perform after completing token-defined tasks.
+Define a function to execute after completing token-defined tasks.
 
 ## Getting Started
 Insert the js file
@@ -8,10 +8,14 @@ Insert the js file
 <script src="./dist/tasknization.min.js"></script>
 ```
 
+```js
+npm install tasknization
+```
+
 and use!
 
 ```javascript
-    // Define a function to perform when completing tasks.
+    // Define a function to execute when completing tasks.
     
     function go_fin() {
       console.log('Done!');
@@ -40,6 +44,8 @@ and use!
 * **pendingTasks()**:       Return array of pending tasks registered.
 * **setFinishTask(task)**:  Define a function (task) to execute when completing tasks.
 * **createInstance()**:     Defines an independent instance of Tasknization.
+* **isComplete()**:         Check that all tasks have been completed.
+* **isFinished()**:         Informs if the defined finish function has been executed.
 
 
 ## Authors

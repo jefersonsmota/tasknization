@@ -1,0 +1,24 @@
+{
+  "name": "tasknization",
+  "version": "1.0.2",
+  "description": "Define a function to execute after completing token-defined tasks.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefersonsmota/tasknization.git"
+  },
+  "keywords": [
+    "motajs",
+    "tasknization",
+    "javascript",
+    "js",
+    "task",
+    "tokenization"
+  ],
+  "author": "Jeferson Mota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jefersonsmota/tasknization/issues"
+  },
+  "homepage": "https://github.com/jefersonsmota/tasknization#readme"
+}

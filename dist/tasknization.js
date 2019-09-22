@@ -1,5 +1,5 @@
-/** motaJs@tasknization.js 1.0.1
-* Define a function to perform after completing token-defined tasks.
+/** motaJs@tasknization.js 1.0.2
+* Define a function to execute after completing token-defined tasks.
 * (c) 2019 Jeferson Mota <jsmota.dev@gmail.com>
 * This tasknization.js is freely distributable under the MIT license
 */
@@ -11,6 +11,7 @@
         var _tasks = [];
         var _completed = [];
         var _finishTask = null;
+        var _isFinished = false;
 
         var _tasknization = {
             setFinishTask: setFinishTask,
@@ -19,7 +20,8 @@
             complete: complete,
             clearAll: clearAll,
             pendingTasks: pendingTasks,
-            isComplete: isComplete
+            isComplete: isComplete,
+            isFinished: isFinished
         };
 
         /**
@@ -87,11 +89,15 @@
                 throw new Error('Param is not valid');
             }
 
-            if (_tasks.indexOf(taskName) >= 0) {
-                _completed.push(taskName);
+            if (_tasks.indexOf(taskName) < 0) {
+                w.console.warn('This task name not exist: ', taskName);
+                return;
             }
 
-            if (_tasks.length == _completed.length && _finishTask !== null) {
+            _completed.push(taskName);
+
+            if (_tasks.length === _completed.length && _finishTask !== null) {
+                _isFinished = true;
                 _finishTask();
             }
         }
@@ -99,10 +105,19 @@
         /**
          * Check that all tasks have been completed.
          * @function isComplete
-         * @return {boolean} true: all tasks completed, false: any tasks is pending.
+         * @return {boolean} true: all tasks completed, false: is pending.
         */
         function isComplete() {
-            return (_tasks.length == _completed.length) && (_tasks.length > 0 && _completed.length > 0);
+            return (_tasks.length === _completed.length) && (_tasks.length > 0 && _completed.length > 0);
+        }
+
+        /**
+         * Informs if the defined function has been executed.
+         * @function isFinished
+         * @return {boolean} true: final task was called, false: final task has not yet been called.
+        */
+        function isFinished() {
+            return _isFinished;
         }
 
         /**
@@ -112,6 +127,7 @@
         function clearAll() {
             _tasks = [];
             _completed = [];
+            _isFinished = false;
         }
 
         /**
