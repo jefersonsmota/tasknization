@@ -1,4 +1,4 @@
-/** motaJs@tasknization.js 1.0.2
+/** motaJs@tasknization.js 1.0.3
 * Define a function to execute after completing token-defined tasks.
 * (c) 2019 Jeferson Mota <jsmota.dev@gmail.com>
 * This tasknization.js is freely distributable under the MIT license
@@ -90,7 +90,7 @@
             }
 
             if (_tasks.indexOf(taskName) < 0) {
-                w.console.warn('This task name not exist: ', taskName);
+                console.warn('This task name not exist: ', taskName);
                 return;
             }
 

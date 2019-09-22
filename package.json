@@ -1,6 +1,6 @@
 {
   "name": "tasknization",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Define a function to execute after completing token-defined tasks.",
   "main": "index.js",
   "repository": {
